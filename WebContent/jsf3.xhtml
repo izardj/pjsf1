@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	coucou 2
+	<br /> #{mbean1.message}
+
+	<h:form>
+Saisie data : <h:inputText id="inputData" value="#{mbean1.data}">
+<f:validateLength maximum="10" />
+</h:inputText>
+<h:message for="inputData"/>
+		<br />
+Saisie data2 : <h:inputText value="#{mbean1.data2}" />
+		<br />
+		<h:commandButton type="submit" value="go" /><br/>
+		<h:commandButton type="submit" value="go result" action="jsf3result" /><br/>
+		<h:commandButton type="submit" value="go result conditionnel" action="#{mbean1.goConditionnel}" /><br/>
+		<h:commandButton type="submit" value="go rule 1" action="pagesuivante" /><br/>
+		<h:commandButton type="submit" value="go erreur navigation" action="#{mbean1.testErreur}" /><br/>
+	</h:form>
+	<!-- 	
+	Les deux :
+	<h:outputText value="#{mbean1.lesDeux}" />
+	<br />
+	 -->
+</body>
+</html>
