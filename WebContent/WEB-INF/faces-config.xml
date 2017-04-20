@@ -6,13 +6,17 @@
 	<navigation-rule>
 		<from-view-id>jsf3.xhtml</from-view-id>
 		<navigation-case>
-		<from-outcome>pagesuivante</from-outcome>
-		<to-view-id>jsf3result.xhtml</to-view-id>
+			<from-outcome>pagesuivante</from-outcome>
+			<to-view-id>jsf3result.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-		<from-action>#{mbean1.testErreur}</from-action>
-		<from-outcome>erreur</from-outcome>
-		<to-view-id>jsf3error.xhtml</to-view-id>
+			<from-action>#{mbean1.testErreur}</from-action>
+			<from-outcome>erreur</from-outcome>
+			<to-view-id>jsf3error.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<validator>
+		<validator-id>civiliteValidator</validator-id>
+		<validator-class>pjsf1.jsf.exos.MonValidateurCivilite</validator-class>
+	</validator>
 </faces-config>

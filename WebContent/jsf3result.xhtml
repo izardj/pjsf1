@@ -5,10 +5,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h:form id="outputMessage">
+	<h:message for="outputMessage"></h:message>
+	</h:form>
+		
+
 	Les deux :
 	<h:outputText value="#{mbean1.lesDeux}" />
 	<h:form>
-	<h:commandButton type="submit" value="back" action="jsf3" /><br/>
+		<h:commandButton type="submit" value="back" action="jsf3" />
+		<br />
 	</h:form>
 </body>
 </html>
