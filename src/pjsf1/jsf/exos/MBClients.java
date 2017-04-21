@@ -3,27 +3,30 @@ package pjsf1.jsf.exos;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "mbclients", eager = true)
 @SessionScoped
 public class MBClients {
 
-	private ClientService clientService;
 	private Client clientCourant;
 	private Client nouveauClient = new Client();
 
 	private ArrayList<Client> clients = new ArrayList<>();
+	
+	@ManagedProperty(value = "#{clientservice}")
+	private ClientService clientService;
 
-	public MBClients() {
-		clientService = new ClientService();
+	public void setClientService(ClientService clientService) {
+		this.clientService = clientService;
 	}
 
 	public String select(Client client) {
 		this.clientCourant = client;
-	
+
 		System.out.println("select : " + client.getNom());
-	
+
 		return "client";
 	}
 

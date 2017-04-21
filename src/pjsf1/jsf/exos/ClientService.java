@@ -2,6 +2,11 @@ package pjsf1.jsf.exos;
 
 import java.util.ArrayList;
 
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean(name="clientservice", eager=true)
+@ApplicationScoped
 public class ClientService {
 
 	private ArrayList<Client> clients = new ArrayList<>();
