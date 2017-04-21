@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h:panelGrid columns="2" border="1" cellpadding="20">
+		<f:facet name="header">
+			<h:outputLabel value="Client choisi" style="color:green;" />
+		</f:facet>
+		<h:outputLabel value="nom" />
+		<h:outputText value="#{mbclients.clientCourant.nom}" />
+		<h:outputLabel value="prenom" />
+		<h:outputText value="#{mbclients.clientCourant.prenom}" />
+	</h:panelGrid>
+	<h:form>
+		<h:commandButton action="clients" value="Liste" />
+		<h:commandButton action="#{mbclients.delete(mbclients.clientCourant)}"
+			value="Effacer" />
+	</h:form>
+</body>
+</html>

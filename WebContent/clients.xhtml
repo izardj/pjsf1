@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+Le nombre de client est :<h:outputText value="#{mbclients.nombre}"></h:outputText>
+<h:form>
+	<h:dataTable value="#{mbclients.clients}" var="client">
+		<h:column>
+			<f:facet name="header">Nom</f:facet>
+			<h:outputText value="#{client.nom}"></h:outputText>
+
+		</h:column>
+		<h:column>
+			<f:facet name="header">Prenom</f:facet>
+			<h:outputText value="#{client.prenom}"></h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Select</f:facet>
+			<h:commandButton type="submit" value="Select" action="#{mbclients.select(client)}"/>
+		</h:column>
+
+	</h:dataTable>
+	<h:commandButton type="submit" value="Ajouter" action="ajouterClient"/>
+</h:form>	
+</body>
+</html>
