@@ -10,6 +10,9 @@ public class MBInject {
 
 	@ManagedProperty(value = "#{mbinjected}")
 	private MBInjected mBInjected;
+	
+	@ManagedProperty(value = "#{mbinjectedserviceimpl}")
+	private MBInjectedService mBInjectedService;
 
 	private String data = "data from inject";
 
@@ -17,9 +20,14 @@ public class MBInject {
 		this.mBInjected = mBInjected;
 	}
 
+	public void setmBInjectedService(MBInjectedService mBInjectedService) {
+		this.mBInjectedService = mBInjectedService;
+	}
+
 	public String getData() {
 		mBInjected.show();
-		return mBInjected.getDataInjected();
+		mBInjectedService.show();
+		return data + " - " + mBInjected.getDataInjected()  + " - " + mBInjectedService.getDataInjected()  + " - " + mBInjectedService.getDataInjected2();
 	}
 
 	public void setData(String data) {
