@@ -9,9 +9,34 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class MBClients {
 
-	private ArrayList<Client> clients = new ArrayList<>();
+	private ClientService clientService;
 	private Client clientCourant;
 	private Client nouveauClient = new Client();
+
+	private ArrayList<Client> clients = new ArrayList<>();
+
+	public MBClients() {
+		clientService = new ClientService();
+	}
+
+	public String select(Client client) {
+		this.clientCourant = client;
+	
+		System.out.println("select : " + client.getNom());
+	
+		return "client";
+	}
+
+	public String delete(Client client) {
+		clientService.delete(client);
+		return "clients";
+	}
+
+	public String ajouter() {
+		clientService.add(nouveauClient);
+		nouveauClient = new Client();
+		return "clients";
+	}
 
 	public Client getNouveauClient() {
 		return nouveauClient;
@@ -25,41 +50,12 @@ public class MBClients {
 		return clientCourant;
 	}
 
-	public MBClients() {
-		// System.out.println("Constructeur MBClients");
-		clients.add(new Client("Dupont", "Jean"));
-		clients.add(new Client("Durand", "Paul"));
-	}
-
 	public ArrayList<Client> getClients() {
-		// System.out.println("Getter MBClients");
-		return clients;
+		return clientService.getClients();
 	}
 
 	public int getNombre() {
 		return clients.size();
-	}
-
-	public String select(Client client) {
-		this.clientCourant = client;
-
-		System.out.println("select : " + client.getNom());
-
-		return "client";
-	}
-
-	public String delete(Client client) {
-		System.out.println("delete : " + client.getNom());
-		clients.remove(client);
-		return "clients";
-	}
-
-	public String ajouter() {
-		System.out.println("ajouter : " + nouveauClient.getNom());
-		Client c = new Client(nouveauClient.getPrenom(), nouveauClient.getNom());
-		nouveauClient = new Client();
-		clients.add(c);
-		return "clients";
 	}
 
 }
